@@ -8,6 +8,7 @@ import { merchantListAtom } from "../recoil/atoms/merchantList.ts";
 import { abilityListAtom } from "../recoil/atoms/abilityList.ts";
 import { bannerListAtom } from "../recoil/atoms/bannerList.ts";
 import { themeListAtom } from "../recoil/atoms/themeList.ts";
+import type { ThemeType } from "../types/api/Theme.type.ts";
 
 const dataCategoryList = ["merchant", "theme", "banner", "ability"];
 const urlList = dataCategoryList.map(
@@ -28,7 +29,9 @@ const Layout = () => {
         }
 
         if (themeRes.status === 200) {
-          setThemeList(themeRes.data);
+          const themeList = themeRes.data as ThemeType[];
+          const availableThemeList = themeList.filter((theme) => theme.nameKo !== "test");
+          setThemeList(availableThemeList);
         }
 
         if (bannerRes.status === 200) {

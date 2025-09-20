@@ -1,0 +1,76 @@
+
+.card {
+  padding: 1rem 0;
+
+  .nameEn {
+    color: var(--gray-2);
+    text-align: right;
+    font-size: 1.1rem
+  }
+
+  .flexContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+
+    .runningTime {
+      font-size: .7rem;
+      font-family: 'Pretendard-SemiBold';
+      padding: .5rem;
+      border-radius: 2rem;
+      border: .2rem solid var(--gray-2);
+      color: var(--gray-1);
+    }
+
+    .nameKo {
+      font-size: 1.8rem;
+      font-family: 'Pretendard-Bold';
+      color: var(--gray-1);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .border {
+    width: 100%;
+    height: .2rem;
+    background: linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
+  }
+
+  .difficultyContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+    .difficultyText {
+      font-size: 1rem;
+      color: var(--gray-1);
+      font-family: 'Pretendard-SemiBold';
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+
+    .themeImage {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .reservationButton {
+    padding: 1rem 0;
+    border: .2rem solid var(--gray-2);
+    text-align: center;
+    font-family: 'Pretendard-SemiBold';
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+}
