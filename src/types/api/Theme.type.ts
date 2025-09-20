@@ -1,6 +1,6 @@
 export type ThemeType = {
   id: number;
-  merchantId: string;
+  merchantId: number;
   nameKo: string;
   nameEn: string;
   mainImagePath: string;

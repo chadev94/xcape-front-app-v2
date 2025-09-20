@@ -1,0 +1,80 @@
+.themeListContainer {
+  position: relative;
+  padding: 2rem;
+
+  .header {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    top: 0;
+    left: 0;
+
+    .left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      border: .2rem solid var(--gray-2);
+      border-radius: 1.1rem 1.1rem 0 0;
+      border-bottom: none;
+      background: #0C0C0C;
+      padding: 1rem 0;
+
+      .icon {
+        flex: 1;
+        text-align: right;
+      }
+
+      .category {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .title {
+          flex: 1;
+        }
+
+        .description {
+          flex: 5;
+          color: var(--gray-2);
+          font-size: .8rem;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      color: #FFF100;
+      font-family: 'Pretendard-SemiBold';
+      font-size: 1.4rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: calc(50% + .1rem); // 둥근 모서리 지나서 시작
+      width: calc(50% - .1rem);
+      border-top: .2rem solid var(--gray-2);
+    }
+  }
+
+  .cardContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 3rem;
+    border: .2rem solid var(--gray-2);
+    border-top: none;
+    border-bottom: .1rem solid var(--gray-2);
+    border-radius: 0 0 1rem 1rem;
+  }
+}

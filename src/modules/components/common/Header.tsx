@@ -1,5 +1,5 @@
 import styles from "@/styles/modules/header.module.scss";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { merchantListAtom } from "../../../recoil/atoms/merchantList.ts";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -13,7 +13,7 @@ const Header = () => {
 
   const merchantListState = useRecoilValue(merchantListAtom);
 
-  const [currentMerchant, setCurrentMerchant] = useRecoilState(currentMerchantAtom);
+  const setCurrentMerchant = useSetRecoilState(currentMerchantAtom);
 
   useEffect(() => {
     const currentMerchant = merchantListState.find((merchant) => location.pathname === `/merchant/${merchant.code}`);
@@ -21,7 +21,6 @@ const Header = () => {
     setCurrentMerchant(currentMerchant);
   }, [location, merchantListState, setCurrentMerchant]);
 
-  console.log(currentMerchant);
 
   return (
     <header>
@@ -46,7 +45,7 @@ const Header = () => {
                 className={`${styles.merchant} ${isActive ? styles.active : null}`}
                 onClick={() => navigate(merchantUrl)}
               >
-                {isActive && <div className={styles.asdf}></div>}
+                {isActive && <div className={styles.triangle}></div>}
                 {merchant.name}
               </div>
             );

@@ -31,6 +31,8 @@ routes.push({
   Element: () => <NotFound />,
 });
 
+console.log(routes);
+
 const router = createBrowserRouter([
   {
     path: "/",

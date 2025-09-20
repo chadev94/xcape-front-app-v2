@@ -1,0 +1,21 @@
+.menuContainer {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  gap: 1rem;
+
+  .menu {
+    flex: 1;
+    padding: 1rem;
+    border: .2rem solid var(--gray-3);
+    text-align: center;
+    font-family: 'Pretendard-SemiBold';
+    color: var(--gray-2);
+
+    &.active {
+      border-color: var(--gray-1);
+      color: var(--gray-1)
+    }
+  }
+}
