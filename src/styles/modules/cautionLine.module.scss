@@ -1,0 +1,13 @@
+@keyframes moveX {
+  to {
+    background-position: 0 -125%;
+  }
+}
+
+.cautionLine {
+  background-image: url('/assets/images/cautionLine.jpeg');
+  background-repeat: repeat;
+  background-position: 0 0;
+  height: 1rem;
+  animation: 1s linear 0s infinite normal none running moveX;
+}

@@ -1,0 +1,20 @@
+export type ThemeType = {
+  id: number;
+  merchantId: string;
+  nameKo: string;
+  nameEn: string;
+  mainImagePath: string;
+  bgImagePath: string;
+  description: string;
+  minParticipantCount: number;
+  maxParticipantCount: number;
+  difficulty: number;
+  genre: string;
+  point: string;
+  youtubeLink: string;
+  colorCode: string;
+  hasXKit: true;
+  isCrimeScene: false;
+  useYn: true;
+  runningTime: number;
+};
