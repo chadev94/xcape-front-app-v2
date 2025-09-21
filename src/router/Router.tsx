@@ -9,7 +9,6 @@ import XcapePage from "../pages/merchant/$merchantCode/xcape";
 import ReservationsPage from "../pages/merchant/$merchantCode/reservations";
 
 const pages: Pages = import.meta.glob("../pages/**/*.tsx", { eager: true });
-console.log(pages);
 const routes: IRoute[] = [];
 
 for (const path of Object.keys(pages)) {
