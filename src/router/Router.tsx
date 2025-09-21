@@ -3,8 +3,13 @@ import { createBrowserRouter } from "react-router-dom";
 import type { IRoute, Pages } from "../types/Route.type.ts";
 import NotFound from "../pages/NotFound.tsx";
 import Layout from "../layouts/Layout.tsx";
+import MerchantLayout from "../layouts/MerchantLayout.tsx";
+import RoomsPage from "../pages/merchant/$merchantCode/rooms";
+import XcapePage from "../pages/merchant/$merchantCode/xcape";
+import ReservationsPage from "../pages/merchant/$merchantCode/reservations";
 
 const pages: Pages = import.meta.glob("../pages/**/*.tsx", { eager: true });
+console.log(pages);
 const routes: IRoute[] = [];
 
 for (const path of Object.keys(pages)) {
@@ -17,7 +22,7 @@ for (const path of Object.keys(pages)) {
       : fileName.replace(/\$/g, ":").replace(/\/index$/, "");
 
   routes.push({
-    path: `/${normalizedPathName}`,
+    path: normalizedPathName,
     Element: pages[path].default,
     loader: pages[path]?.loader as LoaderFunction | undefined,
     action: pages[path]?.action as ActionFunction | undefined,
@@ -38,11 +43,26 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     errorElement: null,
-    children: routes.map(({ Element, ErrorBoundary, ...rest }) => ({
-      ...rest,
-      element: <Element />,
-      ...(ErrorBoundary && { errorElement: <ErrorBoundary /> }),
-    })),
+    children: [
+      {
+        path: "merchant/:merchantCode/*",
+        element: <MerchantLayout />,
+        children: [
+          {
+            path: "xcape",
+            element: <XcapePage />,
+          },
+          {
+            path: "rooms",
+            element: <RoomsPage />,
+          },
+          {
+            path: "reservations",
+            element: <ReservationsPage />,
+          },
+        ],
+      },
+    ],
   },
 ]);
 

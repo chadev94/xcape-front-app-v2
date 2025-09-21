@@ -16,11 +16,12 @@ const Header = () => {
   const setCurrentMerchant = useSetRecoilState(currentMerchantAtom);
 
   useEffect(() => {
-    const currentMerchant = merchantListState.find((merchant) => location.pathname === `/merchant/${merchant.code}`);
+    const currentMerchant = merchantListState.find((merchant) =>
+      location.pathname.startsWith(`/merchant/${merchant.code}`)
+    );
 
     setCurrentMerchant(currentMerchant);
   }, [location, merchantListState, setCurrentMerchant]);
-
 
   return (
     <header>
@@ -37,7 +38,7 @@ const Header = () => {
         <div className={styles.merchantContainer}>
           {merchantListState.map((merchant) => {
             const merchantUrl = `/merchant/${merchant.code}`;
-            const isActive = location.pathname === merchantUrl;
+            const isActive = location.pathname.startsWith(merchantUrl);
 
             return (
               <div

@@ -1,0 +1,19 @@
+.timerContainer {
+  position: relative;
+  user-select: none;
+  pointer-events: none;
+
+  .background {
+    width: 100%;
+  }
+
+  .timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: 'Pretendard';
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+  }
+}
+
