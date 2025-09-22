@@ -1,0 +1,26 @@
+.menu {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: space-around;
+
+  .item {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gray-2);
+    font-family: 'Pretendard';
+    padding: 1rem 0;
+    border-bottom: .3rem solid var(--black);
+
+    &.active {
+      color: var(--gray-1);
+      border-bottom: .3rem solid var(--gray-1);
+    }
+  }
+}
+
+:global {
+  .notion {
+    color: var(--gray-1) !important;
+  }
+}
