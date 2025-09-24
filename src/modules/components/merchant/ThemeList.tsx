@@ -8,22 +8,22 @@ import ThemeCard from "./ThemeCard.tsx";
 
 type Props = {
   themeList: ThemeType[];
-  isCrimScene: boolean;
+  isCrimeScene: boolean;
 };
 
-const ThemeList = ({ themeList, isCrimScene }: Props) => {
+const ThemeList = ({ themeList, isCrimeScene }: Props) => {
   return (
     <div className={styles.themeListContainer}>
       <div className={styles.header}>
         <div className={styles.left}>
-          <div className={styles.icon}>{isCrimScene ? <CrimeSceneLogoIcon /> : <ShieldIcon />}</div>
+          <div className={styles.icon}>{isCrimeScene ? <CrimeSceneLogoIcon /> : <ShieldIcon />}</div>
           <div className={styles.category}>
-            <div className={styles.title}>{isCrimScene ? <CrimeSceneTitleIcon /> : <XFilerTitleIcon />}</div>
+            <div className={styles.title}>{isCrimeScene ? <CrimeSceneTitleIcon /> : <XFilerTitleIcon />}</div>
             <div className={styles.description}>BRAIN EXPERIENCE GAME</div>
           </div>
         </div>
         <div className={styles.right}>
-          <div>{isCrimScene ? "역할극 롤-플레잉 게임" : "사건수사 프로파일 게임"}</div>
+          <div>{isCrimeScene ? "역할극 롤-플레잉 게임" : "사건수사 프로파일 게임"}</div>
         </div>
         <div className={styles.borderBottom}></div>
       </div>

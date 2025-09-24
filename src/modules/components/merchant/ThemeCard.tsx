@@ -35,7 +35,7 @@ const ThemeCard = ({ theme }: Props) => {
       <div className={styles.border}></div>
       <div className={styles.imageContainer}>
         <img className={styles.themeImage} src={theme.mainImagePath} alt="theme-image" />
-        <Genre genre={theme.genre} />
+        <Genre genre={theme.genre} style={{ position: "absolute", bottom: "10%", left: 0, right: 0 }} />
       </div>
       <div className={styles.reservationButton}>실시간 예약하기</div>
     </div>
