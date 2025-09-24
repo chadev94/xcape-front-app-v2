@@ -7,6 +7,8 @@ import MerchantLayout from "../layouts/MerchantLayout.tsx";
 import RoomsPage from "../pages/merchant/$merchantCode/rooms";
 import XcapePage from "../pages/merchant/$merchantCode/xcape";
 import ReservationsPage from "../pages/merchant/$merchantCode/reservations";
+import MerchantCode from "../pages/merchant/$merchantCode";
+import Index from "../pages";
 
 const pages: Pages = import.meta.glob("../pages/**/*.tsx", { eager: true });
 const routes: IRoute[] = [];
@@ -44,9 +46,17 @@ const router = createBrowserRouter([
     errorElement: null,
     children: [
       {
+        path: "",
+        element: <Index />,
+      },
+      {
         path: "merchant/:merchantCode/*",
         element: <MerchantLayout />,
         children: [
+          {
+            path: "",
+            element: <MerchantCode />,
+          },
           {
             path: "xcape",
             element: <XcapePage />,
