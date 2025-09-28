@@ -17,4 +17,27 @@
   @media (min-width: 600px) {
     width: 550px;
   }
+
+  .footer {
+    flex: 1;
+    align-content: end;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: var(--gray-2);
+
+    .container {
+      padding: .5rem 0;
+      border-top: 1px solid var(--gray-2);
+
+      .link {
+        font-size: 1.2rem;
+        color: var(--gray-1);
+        text-decoration: underline;
+        margin-top: 1rem;
+        cursor: pointer;
+      }
+    }
+  }
 }
