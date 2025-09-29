@@ -7,6 +7,15 @@
   width: 80vw;
   height: 80vh;
 
+  @media (min-width: 600px) {
+    width: 600px;
+
+    :global(.notion) {
+      padding: 0 1rem !important;
+    }
+  }
+
+
   .header {
     position: relative;
     padding: 1.5rem;
