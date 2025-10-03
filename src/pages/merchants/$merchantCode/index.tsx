@@ -1,4 +1,4 @@
-import ThemeList from "../../../modules/components/merchant/ThemeList.tsx";
+import ThemeList from "../../../modules/components/merchants/ThemeList.tsx";
 import { useThemeList } from "../../../hooks/useThemeList.ts";
 
 const Index = () => {

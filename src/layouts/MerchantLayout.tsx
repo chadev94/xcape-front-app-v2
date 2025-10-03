@@ -1,4 +1,4 @@
-import Menu from "../modules/components/merchant/Menu.tsx";
+import Menu from "../modules/components/merchants/Menu.tsx";
 import CautionLine from "../modules/components/common/CautionLine.tsx";
 import Slider from "react-slick";
 import { useRecoilValue } from "recoil";
@@ -7,7 +7,7 @@ import { bannerListAtom } from "../recoil/atoms/bannerList.ts";
 import { Outlet, useLocation, useMatch } from "react-router-dom";
 import styles from "@/styles/layouts/merchantLayout.module.scss";
 import { useEffect } from "react";
-import Timer from "../modules/components/merchant/Timer.tsx";
+import Timer from "../modules/components/merchants/Timer.tsx";
 
 const sliderConfig = {
   dots: false,
