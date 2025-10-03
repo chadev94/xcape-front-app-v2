@@ -12,8 +12,6 @@ export const useThemeList = () => {
     location.pathname.startsWith(`/merchant/${merchant.code}`)
   );
 
-  console.log(currentMerchant);
-
   const xFilerThemeList = themeListState.filter(
     (theme) => theme.merchantId === currentMerchant?.id && !theme.isCrimeScene && theme.useYn
   );

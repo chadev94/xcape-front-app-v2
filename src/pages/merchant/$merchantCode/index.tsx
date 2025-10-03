@@ -3,9 +3,6 @@ import { useThemeList } from "../../../hooks/useThemeList.ts";
 
 const Index = () => {
   const { xFilerThemeList, crimeSceneThemeList } = useThemeList();
-  console.log(xFilerThemeList);
-
-  console.log("asdfasdfsadfsadf");
 
   return (
     <div>
