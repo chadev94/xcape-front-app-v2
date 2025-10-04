@@ -13,6 +13,7 @@ import EmptyOvalIcon from "../../../modules/icons/EmptyOvalIcon.tsx";
 import Button from "../../../modules/components/common/Button.tsx";
 import Slider from "react-slick";
 import { currentMerchantAtom } from "../../../recoil/atoms/currentMerchant.ts";
+import { useEffect } from "react";
 
 const sliderConfig = {
   dots: false,
@@ -32,6 +33,10 @@ const ThemeDetail = () => {
   const themeListState = useRecoilValue(themeListAtom);
   const abilityListState = useRecoilValue(abilityListAtom);
   const currentMerchant = useRecoilValue(currentMerchantAtom);
+
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
 
   if (!themeId) return <div>잘못된 접근입니다!</div>;
 

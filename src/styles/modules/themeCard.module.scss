@@ -58,6 +58,7 @@
 
   .imageContainer {
     position: relative;
+    cursor: pointer;
 
     .themeImage {
       width: 100%;
@@ -65,12 +66,8 @@
     }
   }
 
+
   .reservationButton {
-    padding: 1rem 0;
-    border: .2rem solid var(--gray-2);
-    text-align: center;
-    font-family: 'Pretendard-SemiBold';
-    font-size: 1.1rem;
     margin-top: 1rem;
   }
 }

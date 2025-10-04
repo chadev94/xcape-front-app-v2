@@ -9,19 +9,28 @@ import { abilityListAtom } from "../../../../recoil/atoms/abilityList.ts";
 import RightArrow from "../../../icons/RightArrow.tsx";
 import FilledCircleIcon from "../../../icons/FilledCircleIcon.tsx";
 import EmptyCircleIcon from "../../../icons/EmptyCircleIcon.tsx";
+import { useNavigate } from "react-router-dom";
+import { currentMerchantAtom } from "../../../../recoil/atoms/currentMerchant.ts";
 
 type Props = {
   theme: ThemeType;
 };
 
 const RoomsThemeCard = ({ theme }: Props) => {
+  const navigate = useNavigate();
+
+  const currentMerchant = useRecoilValue(currentMerchantAtom);
+
   const stars = makeDifficultyIcon(theme.difficulty);
 
   const abilityListState = useRecoilValue(abilityListAtom);
   const abilityList = abilityListState.filter((ability) => ability.themeId === theme.id);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onClick={() => navigate(`/merchants/${currentMerchant?.code}/themes/${theme.id}`)}
+    >
       <div className={styles["theme-image-container"]}>
         <img className={styles["theme-image"]} src={theme.mainImagePath} alt="theme-image" />
       </div>

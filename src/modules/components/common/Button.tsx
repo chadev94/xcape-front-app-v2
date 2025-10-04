@@ -9,9 +9,9 @@ type Props = {
 
 const Button = ({ text, size, style }: Props) => {
   return (
-    <div className={`${styles.btn} ${styles[`btn-${size}`]}`} style={style}>
+    <button className={`${styles.btn} ${styles[`btn-${size}`]}`} style={style}>
       {text}
-    </div>
+    </button>
   );
 };
 
