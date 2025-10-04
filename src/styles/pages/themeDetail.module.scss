@@ -184,6 +184,8 @@
     :global(.slick-list) {
       padding: 2rem 0;
       background: rgba(216, 210, 75, 0.12);
+      user-select: none;
+      pointer-events: none;
 
       :global(.slick-track) {
         display: flex;
@@ -213,7 +215,6 @@
         left: 10%;
         width: 80%;
         height: 80%;
-        //object-fit: contain;
         z-index: 2;
       }
     }
