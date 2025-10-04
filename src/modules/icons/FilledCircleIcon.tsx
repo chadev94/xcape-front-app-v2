@@ -1,8 +1,13 @@
-const FilledCircleIcon = () => {
+type Props = {
+  size?: string | number;
+  color?: string;
+};
+
+const FilledCircleIcon = ({ size, color }: Props) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="8" viewBox="0 0 7 8" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" height={size ? size : 8} viewBox="0 0 7 8" fill="none">
       <g filter="url(#filter0_i_207_5723)">
-        <circle cx="3.5" cy="4" r="3.5" fill="#EDEDEF" />
+        <circle cx="3.5" cy="4" r="3.5" fill={color ? color : "#EDEDEF"} />
       </g>
       <defs>
         <filter

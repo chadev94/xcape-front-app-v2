@@ -9,6 +9,7 @@ import XcapePage from "../pages/merchants/$merchantCode/xcape";
 import ReservationsPage from "../pages/merchants/$merchantCode/reservations";
 import MerchantCode from "../pages/merchants/$merchantCode";
 import Index from "../pages";
+import ThemeDetail from "../pages/themes/$themeId";
 
 const pages: Pages = import.meta.glob("../pages/**/*.tsx", { eager: true });
 const routes: IRoute[] = [];
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
           {
             path: "reservations",
             element: <ReservationsPage />,
+          },
+          {
+            path: "themes/:themeId",
+            element: <ThemeDetail />,
           },
         ],
       },

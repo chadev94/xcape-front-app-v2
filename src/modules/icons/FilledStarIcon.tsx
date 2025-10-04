@@ -1,10 +1,14 @@
-const FilledStarIcon = () => {
+type Props = {
+  color?: string;
+};
+
+const FilledStarIcon = ({ color }: Props) => {
   return (
     <svg height="1.2rem" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_i_439_185)">
         <path
           d="M8.25 0L10.1022 5.70061H16.0962L11.247 9.22378L13.0992 14.9244L8.25 11.4012L3.40077 14.9244L5.25301 9.22378L0.403784 5.70061H6.39776L8.25 0Z"
-          fill="#EDEDEF"
+          fill={color ? color : "#EDEDEF"}
         />
       </g>
       <defs>

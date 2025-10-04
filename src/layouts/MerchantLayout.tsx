@@ -2,12 +2,12 @@ import Menu from "../modules/components/merchants/Menu.tsx";
 import CautionLine from "../modules/components/common/CautionLine.tsx";
 import Slider from "react-slick";
 import { useRecoilValue } from "recoil";
-import { merchantListAtom } from "../recoil/atoms/merchantList.ts";
 import { bannerListAtom } from "../recoil/atoms/bannerList.ts";
-import { Outlet, useLocation, useMatch } from "react-router-dom";
+import { Outlet, useMatch } from "react-router-dom";
 import styles from "@/styles/layouts/merchantLayout.module.scss";
 import { useEffect } from "react";
 import Timer from "../modules/components/merchants/Timer.tsx";
+import { currentMerchantAtom } from "../recoil/atoms/currentMerchant.ts";
 
 const sliderConfig = {
   dots: false,
@@ -21,14 +21,11 @@ const sliderConfig = {
 };
 
 const MerchantLayout = () => {
-  const matchRoot = useMatch("/merchant/:merchantCode");
-  const matchChild = useMatch("/merchant/:merchantCode/:subPath");
+  const matchRoot = useMatch("/merchants/:merchantCode");
+  const matchChild = useMatch("/merchants/:merchantCode/:subPath");
 
-  const location = useLocation();
-  const merchantListState = useRecoilValue(merchantListAtom);
   const bannerListState = useRecoilValue(bannerListAtom);
-
-  const currentMerchant = merchantListState.find((merchant) => location.pathname === `/merchant/${merchant.code}`);
+  const currentMerchant = useRecoilValue(currentMerchantAtom);
 
   const sliderBannerList = bannerListState.filter(
     (banner) => banner.merchantId === currentMerchant?.id && banner.type === "SLIDER" && banner.useYn
