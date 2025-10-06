@@ -4,12 +4,16 @@ import makeDifficultyIcon from "../../../utils/makeDifficultyIcon.ts";
 import FilledStarIcon from "../../icons/FilledStarIcon.tsx";
 import EmptyStarIcon from "../../icons/EmptyStarIcon.tsx";
 import Genre from "./Genre.tsx";
+import { useNavigate } from "react-router-dom";
+import Button from "../common/Button.tsx";
 
 type Props = {
   theme: ThemeType;
 };
 
 const ThemeCard = ({ theme }: Props) => {
+  const navigate = useNavigate();
+
   const stars = makeDifficultyIcon(theme.difficulty);
 
   return (
@@ -33,11 +37,13 @@ const ThemeCard = ({ theme }: Props) => {
         </div>
       </div>
       <div className={styles.border}></div>
-      <div className={styles.imageContainer}>
+      <div className={styles.imageContainer} onClick={() => navigate(`themes/${theme.id}`)}>
         <img className={styles.themeImage} src={theme.mainImagePath} alt="theme-image" />
         <Genre genre={theme.genre} style={{ position: "absolute", bottom: "10%", left: 0, right: 0 }} />
       </div>
-      <div className={styles.reservationButton}>실시간 예약하기</div>
+      <div className={styles.reservationButton}>
+        <Button text="실시간 예약하기" size="lg" style={{ width: "100%" }} />
+      </div>
     </div>
   );
 };

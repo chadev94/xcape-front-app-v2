@@ -4,11 +4,12 @@ import type { IRoute, Pages } from "../types/Route.type.ts";
 import NotFound from "../pages/NotFound.tsx";
 import Layout from "../layouts/Layout.tsx";
 import MerchantLayout from "../layouts/MerchantLayout.tsx";
-import RoomsPage from "../pages/merchant/$merchantCode/rooms";
-import XcapePage from "../pages/merchant/$merchantCode/xcape";
-import ReservationsPage from "../pages/merchant/$merchantCode/reservations";
-import MerchantCode from "../pages/merchant/$merchantCode";
+import RoomsPage from "../pages/merchants/$merchantCode/rooms";
+import XcapePage from "../pages/merchants/$merchantCode/xcape";
+import ReservationsPage from "../pages/merchants/$merchantCode/reservations";
+import MerchantCode from "../pages/merchants/$merchantCode";
 import Index from "../pages";
+import ThemeDetail from "../pages/themes/$themeId";
 
 const pages: Pages = import.meta.glob("../pages/**/*.tsx", { eager: true });
 const routes: IRoute[] = [];
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
         element: <Index />,
       },
       {
-        path: "merchant/:merchantCode/*",
+        path: "merchants/:merchantCode/*",
         element: <MerchantLayout />,
         children: [
           {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
           {
             path: "reservations",
             element: <ReservationsPage />,
+          },
+          {
+            path: "themes/:themeId",
+            element: <ThemeDetail />,
           },
         ],
       },

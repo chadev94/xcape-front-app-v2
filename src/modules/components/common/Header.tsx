@@ -17,7 +17,7 @@ const Header = () => {
 
   useEffect(() => {
     const currentMerchant = merchantListState.find((merchant) =>
-      location.pathname.startsWith(`/merchant/${merchant.code}`)
+      location.pathname.startsWith(`/merchants/${merchant.code}`)
     );
 
     setCurrentMerchant(currentMerchant);
@@ -37,7 +37,7 @@ const Header = () => {
         </div>
         <div className={styles.merchantContainer}>
           {merchantListState.map((merchant) => {
-            const merchantUrl = `/merchant/${merchant.code}`;
+            const merchantUrl = `/merchants/${merchant.code}`;
             const isActive = location.pathname.startsWith(merchantUrl);
 
             return (

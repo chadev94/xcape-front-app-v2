@@ -24,6 +24,7 @@
     top: 50%;
     right: 2rem;
     transform: translate(0, -50%);
+    cursor: pointer;
   }
 }
 
@@ -40,6 +41,7 @@
     text-align: center;
     border-bottom: .3rem solid var(--black);
     font-family: 'Pretendard-SemiBold';
+    cursor: pointer;
 
     .triangle {
       position: absolute;

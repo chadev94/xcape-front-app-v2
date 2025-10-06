@@ -1,11 +1,8 @@
-import ThemeList from "../../../modules/components/merchant/ThemeList.tsx";
+import ThemeList from "../../../modules/components/merchants/ThemeList.tsx";
 import { useThemeList } from "../../../hooks/useThemeList.ts";
 
 const Index = () => {
   const { xFilerThemeList, crimeSceneThemeList } = useThemeList();
-  console.log(xFilerThemeList);
-
-  console.log("asdfasdfsadfsadf");
 
   return (
     <div>

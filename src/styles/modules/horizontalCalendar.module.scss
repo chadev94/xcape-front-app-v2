@@ -1,0 +1,71 @@
+.container {
+
+  .header-container {
+    background-color: var(--gray-4);
+    padding: 0 .8rem;
+    border-radius: .5rem;
+
+    .header {
+      color: var(--gray-1);
+      font-size: 1.4rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--gray-3);
+      text-align: center;
+    }
+
+    .date-container {
+      display: flex;
+      overflow-x: scroll;
+      padding: 1rem 0;
+      gap: 1rem;
+
+      .btn-date {
+        outline: none;
+        border: none;
+        text-align: center;
+        flex: 0 0 40px;
+        padding: .5rem;
+        border-radius: 0.8rem;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 5rem;
+
+        .label {
+          color: var(--gray-1);
+        }
+
+        .weekday {
+          color: var(--gray-2);
+        }
+
+        &:disabled {
+          .label,
+          .weekday {
+            color: var(--gray-3);
+          }
+        }
+
+        &.active {
+          background-color: var(--color-neon);
+
+          .label,
+          .weekday {
+            color: var(--black)
+          }
+        }
+      }
+    }
+  }
+
+  .detail-date-container {
+    margin-top: .8rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--gray-4);
+    color: var(--color-neon);
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}

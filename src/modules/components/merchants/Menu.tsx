@@ -11,13 +11,13 @@ const Menu = () => {
 
   const handleNavigate = (path: string) => {
     if (currentMerchant) {
-      return navigate(`/merchant/${currentMerchant.code}/${path}`);
+      return navigate(`/merchants/${currentMerchant.code}/${path}`);
     }
   };
 
   const isActive = (path: string) => {
     if (!currentMerchant) return false;
-    return location.pathname.startsWith(`/merchant/${currentMerchant.code}/${path}`);
+    return location.pathname.startsWith(`/merchants/${currentMerchant.code}/${path}`);
   };
 
   return (

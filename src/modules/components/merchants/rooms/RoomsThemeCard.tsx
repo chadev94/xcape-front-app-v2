@@ -9,35 +9,37 @@ import { abilityListAtom } from "../../../../recoil/atoms/abilityList.ts";
 import RightArrow from "../../../icons/RightArrow.tsx";
 import FilledCircleIcon from "../../../icons/FilledCircleIcon.tsx";
 import EmptyCircleIcon from "../../../icons/EmptyCircleIcon.tsx";
+import { useNavigate } from "react-router-dom";
+import { currentMerchantAtom } from "../../../../recoil/atoms/currentMerchant.ts";
 
 type Props = {
   theme: ThemeType;
 };
 
 const RoomsThemeCard = ({ theme }: Props) => {
+  const navigate = useNavigate();
+
+  const currentMerchant = useRecoilValue(currentMerchantAtom);
+
   const stars = makeDifficultyIcon(theme.difficulty);
 
   const abilityListState = useRecoilValue(abilityListAtom);
   const abilityList = abilityListState.filter((ability) => ability.themeId === theme.id);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.themeImageContainer}>
-        <img className={styles.themeImage} src={theme.mainImagePath} alt="theme-image" />
+    <div
+      className={styles.container}
+      onClick={() => navigate(`/merchants/${currentMerchant?.code}/themes/${theme.id}`)}
+    >
+      <div className={styles["theme-image-container"]}>
+        <img className={styles["theme-image"]} src={theme.mainImagePath} alt="theme-image" />
       </div>
-      <div className={styles.themeInfo}>
+      <div className={styles["theme-info"]}>
         <Genre genre={theme.genre} style={{ width: "80%" }} />
-        <div className={styles.nameContainer}>
-          <div className={styles.nameEn}>{theme.nameEn}</div>
-          <div className={styles.description}>
-            <div className={styles.nameKo}>{theme.nameKo}</div>
-            <div className={styles.runningTime}>{theme.runningTime}분</div>
-          </div>
-        </div>
-        <div className={styles.difficultyContainer}>
+        <div className={styles["difficulty-container"]}>
           <div className={styles.border}></div>
-          <div className={styles.dd}>
-            <div className={styles.difficultyText}>난이도</div>
+          <div className={styles["difficulty-wrap"]}>
+            <div className={styles["difficulty-text"]}>난이도</div>
             <div>
               {stars.map((filled, index) =>
                 filled ? (
@@ -50,7 +52,14 @@ const RoomsThemeCard = ({ theme }: Props) => {
           </div>
           <div className={styles.border}></div>
         </div>
-        <div className={styles.abilityContainer}>
+        <div className={styles["name-container"]}>
+          <div className={styles["name-english"]}>{theme.nameEn}</div>
+          <div className={styles.description}>
+            <div className={styles["name-korean"]}>{theme.nameKo}</div>
+            <div className={styles["runningTime"]}>{theme.runningTime}분</div>
+          </div>
+        </div>
+        <div className={styles["ability-container"]}>
           {abilityList.map((ability) => {
             return (
               <div key={`ability-${theme.id}-${ability.id}`} className={styles.ability}>
@@ -69,7 +78,7 @@ const RoomsThemeCard = ({ theme }: Props) => {
           })}
         </div>
       </div>
-      <div style={{ flex: 0.1 }}>
+      <div className={styles["icon-container"]}>
         <RightArrow />
       </div>
     </div>

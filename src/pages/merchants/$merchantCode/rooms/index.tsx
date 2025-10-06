@@ -1,5 +1,5 @@
 import { useThemeList } from "../../../../hooks/useThemeList.ts";
-import RoomsThemeList from "../../../../modules/components/merchant/rooms/RoomsThemeList.tsx";
+import RoomsThemeList from "../../../../modules/components/merchants/rooms/RoomsThemeList.tsx";
 
 const RoomsPage = () => {
   const { xFilerThemeList, crimeSceneThemeList } = useThemeList();

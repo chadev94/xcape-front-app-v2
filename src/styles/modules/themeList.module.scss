@@ -1,6 +1,6 @@
 .themeListContainer {
   position: relative;
-  padding: 2rem;
+  padding: 1rem;
 
   .header {
     position: relative;
@@ -23,7 +23,7 @@
 
       .icon {
         flex: 1;
-        text-align: right;
+        text-align: center;
       }
 
       .category {
@@ -71,7 +71,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    padding: 0 3rem;
+    padding: 0 1rem;
     border: .2rem solid var(--gray-2);
     border-top: none;
     border-bottom: .1rem solid var(--gray-2);
