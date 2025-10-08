@@ -7,7 +7,7 @@ const Divider = () => {
         x2="12.0576"
         y2="0.665592"
         stroke="url(#paint0_linear_496_4144)"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <defs>
         <linearGradient

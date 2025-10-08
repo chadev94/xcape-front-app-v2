@@ -39,7 +39,11 @@ const ReservationsThemeCard = ({ reservationResponse }: Props) => {
       <div className={styles["reservations-container"]}>
         {/*TODO 오픈룸 버튼 디자인 필요*/}
         {reservationResponse.reservationList.map((reservation) => (
-          <button className={styles["btn-reservation-time"]} disabled={reservation.isReserved}>
+          <button
+            key={`reservationTime-${reservation.time}`}
+            className={styles["btn-reservation-time"]}
+            disabled={reservation.isReserved}
+          >
             <div className={styles["time-text"]}>{reservation.time}</div>
             <div>{reservation.isReserved ? "예약불가" : "예약가능"}</div>
           </button>
