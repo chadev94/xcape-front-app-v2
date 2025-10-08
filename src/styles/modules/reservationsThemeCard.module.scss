@@ -1,0 +1,60 @@
+.container {
+  padding: 1rem;
+  border: 1px solid var(--gray-3);
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Pretendard';
+
+    .title {
+
+      .name-korean {
+        font-family: 'Pretendard-Bold';
+        font-size: 1.8rem;
+      }
+
+      .name-english {
+        font-size: 1rem;
+      }
+    }
+
+    .info {
+      .participant-count {
+        text-align: end;
+      }
+    }
+  }
+
+  .theme-image-container {
+    margin: 1rem 0;
+
+    .theme-image {
+      width: 100%;
+    }
+  }
+
+  .reservations-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .7rem;
+
+    .btn-reservation-time {
+      padding: 1rem;
+      background: var(--gray-4);
+      border: .1rem solid var(--color-neon);
+      border-radius: .3rem;
+      color: var(--color-neon);
+
+      &:disabled {
+        border-color: var(--gray-4);
+        color: var(--gray-4);
+      }
+
+      .time-text {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

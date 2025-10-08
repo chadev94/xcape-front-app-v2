@@ -1,5 +1,5 @@
 import styles from "@/styles/modules/header.module.scss";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { merchantListAtom } from "../../../recoil/atoms/merchantList.ts";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -13,15 +13,17 @@ const Header = () => {
 
   const merchantListState = useRecoilValue(merchantListAtom);
 
-  const setCurrentMerchant = useSetRecoilState(currentMerchantAtom);
+  const [currentMerchantState, setCurrentMerchantState] = useRecoilState(currentMerchantAtom);
 
   useEffect(() => {
     const currentMerchant = merchantListState.find((merchant) =>
       location.pathname.startsWith(`/merchants/${merchant.code}`)
     );
 
-    setCurrentMerchant(currentMerchant);
-  }, [location, merchantListState, setCurrentMerchant]);
+    if (currentMerchantState?.id !== currentMerchant?.id) {
+      setCurrentMerchantState(currentMerchant);
+    }
+  }, [currentMerchantState?.id, location.pathname, merchantListState, setCurrentMerchantState]);
 
   return (
     <header>
