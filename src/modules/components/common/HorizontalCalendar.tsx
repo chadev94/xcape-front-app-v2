@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { type Dispatch, type SetStateAction, useEffect, useRef } from "react";
 import { addDays, format, isSameDay } from "date-fns";
 import { ko } from "date-fns/locale";
 import styles from "@/styles/modules/horizontalCalendar.module.scss";
@@ -27,15 +27,16 @@ const generateDays = (centerDate: Date): DayItem[] => {
 const now = new Date();
 const dayList = generateDays(now);
 
-const HorizontalCalendar = () => {
-  const [selectedDate, setSelectedDate] = useState(now);
+type Props = {
+  selectedDate: Date;
+  setSelectedDate: Dispatch<SetStateAction<Date>>;
+};
 
+const HorizontalCalendar = ({ selectedDate, setSelectedDate }: Props) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const dayRefList = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const handleClick = (date: Date, isInit?: boolean) => {
-    setSelectedDate(date);
-
+  const scrollToCenter = (date: Date, isInit?: boolean) => {
     const index = dayList.findIndex((day) => isSameDay(day.date, date));
 
     const container = scrollRef.current;
@@ -56,8 +57,13 @@ const HorizontalCalendar = () => {
     }
   };
 
+  const handleClick = (date: Date) => {
+    setSelectedDate(date);
+    scrollToCenter(date);
+  };
+
   useEffect(() => {
-    handleClick(now, true);
+    scrollToCenter(now, true);
   }, []);
 
   return (
