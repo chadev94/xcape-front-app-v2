@@ -133,7 +133,7 @@ const ThemeDetail = () => {
         <Slider {...sliderConfig}>
           {currentThemeList.map((theme) => {
             return (
-              <div className={styles["other-theme-container"]}>
+              <div key={`other-theme-${theme.id}`} className={styles["other-theme-container"]}>
                 <img
                   src="/assets/images/file-background.png"
                   className={styles["file-background"]}
